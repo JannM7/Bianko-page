@@ -60,8 +60,18 @@
       margin-top: 20px;
     }
     .icon-trigger img {
-      width: 80px;
+      width: 120px;
       cursor: pointer;
+      border: 2px solid #fff;
+      border-radius: 15px;
+      padding: 8px;
+      transition: all 0.3s ease;
+      background-color: #000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .icon-trigger img:hover {
+      transform: scale(1.1);
+      border-color: #ccc;
     }
     .modal {
       display: none;
@@ -201,6 +211,7 @@
   <section>
     <h2>Galería de Diseños</h2>
     <div class="icon-trigger">
+      <!-- ICONO MODIFICADO (más grande con borde) -->
       <img src="icon.png" alt="Ver diseños" onclick="document.getElementById('modal').style.display='block'"/>
     </div>
     <div id="modal" class="modal">
@@ -220,7 +231,7 @@
     <iframe src="https://www.youtube.com/embed/reRbNdl1LqI" allowfullscreen></iframe>
   </section>
 
-  <a href="https://api.whatsapp.com/send?phone=+573193381302&text=Hola%20BIANKO,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20muebles%20personalizados" 
+  <a href="https://api.whatsapp.com/send?phone=573124651327&text=Hola%20BIANKO,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20muebles%20personalizados" 
      class="whatsapp-btn" 
      target="_blank"
      rel="noopener noreferrer"
