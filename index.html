@@ -18,7 +18,14 @@
       text-align: center;
     }
     header img {
-      max-width: 200px;
+      max-width: 250px;
+      border-radius: 15px;
+      border: 3px solid #fff;
+      padding: 5px;
+      transition: transform 0.3s ease;
+    }
+    header img:hover {
+      transform: rotate(2deg);
     }
     section {
       padding: 40px 20px;
@@ -91,8 +98,6 @@
       background-color: #222;
       color: #ccc;
     }
-
-    /* Estilos del botón de WhatsApp */
     .whatsapp-btn {
       position: fixed;
       bottom: 20px;
@@ -116,6 +121,60 @@
       width: 40px;
       height: 40px;
       filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+    }
+    .about-section {
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto 40px;
+    }
+    .about-title {
+      cursor: pointer;
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    .about-title:hover {
+      background-color: #444;
+    }
+    .about-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding: 0 15px;
+    }
+    .about-content.active {
+      max-height: 1000px;
+      padding: 25px 15px;
+    }
+    .team-member {
+      text-align: center;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border: 2px solid #ddd;
+    }
+    .chevron {
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+    .chevron.active {
+      transform: rotate(180deg);
     }
   </style>
 </head>
@@ -162,7 +221,6 @@
     <iframe src="https://www.youtube.com/embed/reRbNdl1LqI" allowfullscreen></iframe>
   </section>
 
-  <!-- Botón de WhatsApp -->
   <a href="https://api.whatsapp.com/send?phone=+573193381302&text=Hola%20BIANKO,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20muebles%20personalizados" 
      class="whatsapp-btn" 
      target="_blank"
@@ -171,8 +229,46 @@
     <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
   </a>
 
+  <section class="about-section">
+    <div class="about-title" onclick="toggleAbout()">
+      <h2>Sobre Nosotros</h2>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="about-content">
+      <div class="team-member">
+        <img src="persona1.jpg" alt="Equipo BIANKO">
+        <h3>María González</h3>
+        <p>Diseñadora Principal</p>
+      </div>
+      <div class="team-member">
+        <img src="persona2.jpg" alt="Equipo BIANKO">
+        <h3>Carlos Mendoza</h3>
+        <p>Especialista en Producción</p>
+      </div>
+      <div class="team-member">
+        <img src="persona3.jpg" alt="Equipo BIANKO">
+        <h3>Lucía Fernández</h3>
+        <p>Arquitecta de Interiores</p>
+      </div>
+      <div class="team-member">
+        <img src="persona4.jpg" alt="Equipo BIANKO">
+        <h3>Pedro Martínez</h3>
+        <p>Gerente de Proyectos</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2025 BIANKO. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    function toggleAbout() {
+      const content = document.querySelector('.about-content');
+      const chevron = document.querySelector('.chevron');
+      content.classList.toggle('active');
+      chevron.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
