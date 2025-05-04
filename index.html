@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BIANKO - Muebles Personalizados</title>
   <style>
-    /* ... (mantenemos todos los estilos anteriores) ... */
-
-    /* Modificación del logo */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
     header img {
       max-width: 250px;
       border-radius: 15px;
@@ -15,18 +24,109 @@
       padding: 5px;
       transition: transform 0.3s ease;
     }
-    
     header img:hover {
       transform: rotate(2deg);
     }
-
-    /* Estilos para la sección Sobre Nosotros */
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .steps, .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .step, .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      flex: 1 1 250px;
+    }
+    .video {
+      text-align: center;
+      margin-top: 30px;
+    }
+    iframe {
+      width: 270px;
+      height: 480px;
+      border: none;
+    }
+    .icon-trigger {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .icon-trigger img {
+      width: 80px;
+      cursor: pointer;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      overflow-y: auto;
+    }
+    .modal-content {
+      background: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 10px;
+      position: relative;
+    }
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .close {
+      position: absolute;
+      top: 10px; right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: #ccc;
+    }
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #25d366;
+      border-radius: 50%;
+      padding: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    }
+    .whatsapp-btn img {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+    }
     .about-section {
       padding: 20px;
       max-width: 1000px;
       margin: 0 auto 40px;
     }
-    
     .about-title {
       cursor: pointer;
       background-color: #333;
@@ -38,11 +138,9 @@
       align-items: center;
       transition: all 0.3s ease;
     }
-    
     .about-title:hover {
       background-color: #444;
     }
-    
     .about-content {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -52,12 +150,10 @@
       transition: max-height 0.3s ease-out;
       padding: 0 15px;
     }
-    
     .about-content.active {
       max-height: 1000px;
       padding: 25px 15px;
     }
-    
     .team-member {
       text-align: center;
       background: white;
@@ -65,7 +161,6 @@
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    
     .team-member img {
       width: 150px;
       height: 150px;
@@ -74,23 +169,65 @@
       margin-bottom: 10px;
       border: 2px solid #ddd;
     }
-    
     .chevron {
       font-size: 24px;
       transition: transform 0.3s ease;
     }
-    
     .chevron.active {
       transform: rotate(180deg);
     }
   </style>
 </head>
 <body>
-  <!-- ... (mantenemos todo el contenido anterior) ... -->
+  <header>
+    <img src="logo.png" alt="Logo de BIANKO"/>
+    <h2>We design for you, we create for your space</h2>
+  </header>
 
-  <!-- Botón de WhatsApp (se mantiene igual) ... -->
+  <section>
+    <h2>¿Quiénes somos?</h2>
+    <p>BIANKO es una plataforma de comercio electrónico donde puedes diseñar y personalizar muebles a tu medida. Selecciona materiales, colores, dimensiones y detalles únicos para crear el mueble perfecto para tu hogar. Nosotros lo fabricamos y lo llevamos hasta tu puerta.</p>
+  </section>
 
-  <!-- Nueva sección Sobre Nosotros -->
+  <section>
+    <h2>¿Cómo funciona?</h2>
+    <div class="steps">
+      <div class="step"><h3>1. Elige tu tipo de mueble</h3><p>Selecciona si deseas una mesa, silla, escritorio, estantería, etc.</p></div>
+      <div class="step"><h3>2. Personaliza los detalles</h3><p>Escoge el material, color, tamaño y estilo según tus necesidades.</p></div>
+      <div class="step"><h3>3. Fabricación y entrega</h3><p>Nosotros creamos tu diseño y lo enviamos directamente a tu hogar.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Galería de Diseños</h2>
+    <div class="icon-trigger">
+      <img src="icon.png" alt="Ver diseños" onclick="document.getElementById('modal').style.display='block'"/>
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+        <h3>Diseños recientes</h3>
+        <img src="design1.png" alt="Diseño de mueble 1"/>
+        <img src="design2.png" alt="Diseño de mueble 2"/>
+        <img src="design3.png" alt="Diseño de mueble 3"/>
+        <img src="design4.png" alt="Diseño de mueble 4"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="video">
+    <h2>Conoce cómo trabajamos</h2>
+    <iframe src="https://www.youtube.com/embed/reRbNdl1LqI" allowfullscreen></iframe>
+  </section>
+
+  <a href="https://api.whatsapp.com/send?phone=+573193381302&text=Hola%20BIANKO,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20muebles%20personalizados" 
+     class="whatsapp-btn" 
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+  </a>
+
   <section class="about-section">
     <div class="about-title" onclick="toggleAbout()">
       <h2>Sobre Nosotros</h2>
@@ -98,24 +235,24 @@
     </div>
     <div class="about-content">
       <div class="team-member">
-        <img src="persona1.jpg" alt="Equipo BIANKO">
-        <h3>María González</h3>
-        <p>Diseñadora Principal</p>
+        <img src="palacios.jpg" alt="Equipo BIANKO">
+        <h3>Cristian Palacios</h3>
+        <!-- <p>Diseñadora Principal</p> -->
       </div>
       <div class="team-member">
-        <img src="persona2.jpg" alt="Equipo BIANKO">
-        <h3>Carlos Mendoza</h3>
-        <p>Especialista en Producción</p>
+        <img src="montoya.jpg" alt="Equipo BIANKO">
+        <h3>Juan Montoya</h3>
+        <!-- <p>Especialista en producción</p> -->
       </div>
       <div class="team-member">
-        <img src="persona3.jpg" alt="Equipo BIANKO">
-        <h3>Lucía Fernández</h3>
-        <p>Arquitecta de Interiores</p>
+        <img src="avila.jpg" alt="Equipo BIANKO">
+        <h3>Karen Avila</h3>
+        <!-- <p>Arquitecto de interiores</p> -->
       </div>
       <div class="team-member">
-        <img src="persona4.jpg" alt="Equipo BIANKO">
-        <h3>Pedro Martínez</h3>
-        <p>Gerente de Proyectos</p>
+        <img src="borrero.jpg" alt="Equipo BIANKO">
+        <h3>Daniel Borrero</h3>
+        <!-- <p>Gerente de proyectos</p> -->
       </div>
     </div>
   </section>
@@ -125,15 +262,12 @@
   </footer>
 
   <script>
-    // Función para el acordeón de Sobre Nosotros
     function toggleAbout() {
       const content = document.querySelector('.about-content');
       const chevron = document.querySelector('.chevron');
       content.classList.toggle('active');
       chevron.classList.toggle('active');
     }
-
-    // Código anterior para el modal se mantiene
   </script>
 </body>
 </html>
